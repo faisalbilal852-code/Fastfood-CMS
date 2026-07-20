@@ -1,0 +1,876 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hafiz Pizza Hut | Pizza, Burgers & Fried Items</title>
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <!-- Font Awesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Netlify Identity: CMS login ke liye zaroori -->
+    <script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
+    <script>
+      if (window.netlifyIdentity) {
+        window.netlifyIdentity.on("init", user => {
+          if (!user) {
+            window.netlifyIdentity.on("login", () => {
+              document.location.href = "/admin/";
+            });
+          }
+        });
+      }
+    </script>
+    <style>
+        :root {
+            --primary-color: #e60023;
+            --secondary-color: #ffffff;
+            --text-dark: #333333;
+            --text-light: #666666;
+            --bg-light: #f9f9f9;
+            --shadow: 0 4px 15px rgba(0,0,0,0.1);
+            --transition: all 0.3s ease;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+            scroll-behavior: smooth;
+        }
+
+        body {
+            background-color: var(--bg-light);
+            color: var(--text-dark);
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .btn {
+            padding: 12px 25px;
+            border-radius: 30px;
+            border: none;
+            cursor: pointer;
+            font-weight: 600;
+            transition: var(--transition);
+            text-decoration: none;
+            display: inline-block;
+            text-align: center;
+        }
+
+        .btn-primary {
+            background-color: var(--primary-color);
+            color: white;
+        }
+
+        .btn-primary:hover:not(:disabled) {
+            background-color: #c4001d;
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(230, 0, 35, 0.3);
+        }
+
+        .btn-primary:disabled {
+            background-color: #ccc;
+            cursor: not-allowed;
+            transform: none;
+            box-shadow: none;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+            color: var(--text-dark);
+        }
+
+        .section-title span {
+            color: var(--primary-color);
+        }
+
+        /* Navbar */
+        nav {
+            background: white;
+            padding: 15px 0;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+        }
+
+        .nav-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--primary-color);
+            text-decoration: none;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 30px;
+            list-style: none;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--text-dark);
+            font-weight: 500;
+            transition: var(--transition);
+        }
+
+        .nav-links a:hover {
+            color: var(--primary-color);
+        }
+
+        .nav-icons {
+            display: flex;
+            gap: 20px;
+            align-items: center;
+        }
+
+        .icon-badge {
+            position: relative;
+            cursor: pointer;
+            font-size: 1.4rem;
+        }
+
+        .badge {
+            position: absolute;
+            top: -8px;
+            right: -10px;
+            background: var(--primary-color);
+            color: white;
+            font-size: 0.7rem;
+            padding: 2px 6px;
+            border-radius: 50%;
+        }
+
+        /* Hero Section */
+        .hero {
+            height: 60vh;
+            background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('https://images.unsplash.com/photo-1513104890138-7c749659a591?q=80&w=2070&auto=format&fit=crop') no-repeat center center/cover;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: white;
+            padding: 0 20px;
+        }
+
+        .hero-content h1 {
+            font-size: 3rem;
+            margin-bottom: 15px;
+            font-weight: 700;
+        }
+
+        /* Category Tabs */
+        .category-tabs {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+            margin-bottom: 40px;
+            flex-wrap: wrap;
+        }
+
+        .tab-btn {
+            padding: 10px 20px;
+            background: white;
+            border: 2px solid transparent;
+            border-radius: 25px;
+            cursor: pointer;
+            font-weight: 600;
+            color: var(--text-light);
+            transition: var(--transition);
+            box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+        }
+
+        .tab-btn.active {
+            background: var(--primary-color);
+            color: white;
+        }
+
+        /* Menu Grid */
+        .menu-section {
+            padding: 60px 0;
+        }
+
+        .menu-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 30px;
+        }
+
+        .menu-card {
+            background: white;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+            display: flex;
+            flex-direction: column;
+            position: relative;
+            border: 1px solid #eee;
+        }
+
+        .menu-card:hover {
+            transform: translateY(-10px);
+        }
+
+        .menu-img {
+            width: 100%;
+            aspect-ratio: 1 / 1;
+            object-fit: cover;
+        }
+
+        /* Text-Only Deal Card Styling */
+        .deal-card {
+            padding-top: 20px;
+            border: 2px solid var(--primary-color);
+        }
+
+        .deal-tag {
+            background: var(--primary-color);
+            color: white;
+            padding: 4px 12px;
+            font-size: 0.75rem;
+            font-weight: 700;
+            border-radius: 20px;
+            display: inline-block;
+            margin-bottom: 10px;
+        }
+
+        .menu-info {
+            padding: 20px;
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .menu-info h3 {
+            margin-bottom: 5px;
+            font-size: 1.2rem;
+        }
+
+        .menu-desc {
+            color: var(--text-light);
+            font-size: 0.85rem;
+            margin-bottom: 15px;
+            height: auto;
+            min-height: 60px;
+        }
+
+        .size-selector {
+            margin-bottom: 10px;
+        }
+
+        .size-selector label {
+            display: block;
+            font-size: 0.75rem;
+            font-weight: 600;
+            margin-bottom: 3px;
+            color: var(--text-light);
+        }
+
+        .size-selector select {
+            width: 100%;
+            padding: 8px;
+            border-radius: 8px;
+            border: 1px solid #ddd;
+            outline: none;
+            font-size: 0.9rem;
+        }
+
+        .menu-price {
+            font-weight: 700;
+            color: var(--primary-color);
+            font-size: 1.4rem;
+            margin-bottom: 15px;
+        }
+
+        /* Quantity Selector on Card */
+        .card-qty-wrapper {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-bottom: 15px;
+            background: #f5f5f5;
+            padding: 5px 15px;
+            border-radius: 15px;
+            width: fit-content;
+        }
+
+        .card-qty-btn {
+            background: none;
+            border: none;
+            cursor: pointer;
+            font-size: 1.2rem;
+            color: var(--primary-color);
+            font-weight: bold;
+            padding: 0 5px;
+        }
+
+        .card-qty-value {
+            font-weight: 600;
+            min-width: 20px;
+            text-align: center;
+        }
+
+        .card-actions {
+            display: flex;
+            gap: 10px;
+            margin-top: auto;
+        }
+
+        /* Cart Sidebar */
+        .cart-sidebar {
+            position: fixed;
+            top: 0;
+            right: -450px;
+            width: 400px;
+            height: 100vh;
+            background: white;
+            z-index: 2000;
+            box-shadow: -5px 0 15px rgba(0,0,0,0.1);
+            transition: 0.4s ease;
+            padding: 30px;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .cart-sidebar.active {
+            right: 0;
+        }
+
+        .cart-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+            border-bottom: 1px solid #eee;
+            padding-bottom: 15px;
+        }
+
+        .cart-items {
+            flex-grow: 1;
+            overflow-y: auto;
+        }
+
+        .cart-item {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            margin-bottom: 20px;
+            padding-bottom: 15px;
+            border-bottom: 1px solid #f9f9f9;
+        }
+
+        .cart-item img, .cart-item .cart-item-placeholder {
+            width: 60px;
+            height: 60px;
+            border-radius: 10px;
+            object-fit: cover;
+        }
+
+        .cart-item .cart-item-placeholder {
+            background: #eee;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--primary-color);
+            font-size: 1.2rem;
+            border: 1px solid #ddd;
+        }
+
+        .cart-item-info {
+            flex-grow: 1;
+        }
+
+        .cart-item-info h4 {
+            font-size: 0.9rem;
+            margin-bottom: 2px;
+        }
+
+        .size-tag {
+            font-size: 0.7rem;
+            background: #f0f0f0;
+            padding: 2px 6px;
+            border-radius: 4px;
+            color: #666;
+            margin-right: 5px;
+        }
+
+        .cart-qty-controls {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-top: 5px;
+        }
+
+        .qty-btn-small {
+            background: #eee;
+            border: none;
+            width: 24px;
+            height: 24px;
+            border-radius: 4px;
+            cursor: pointer;
+            font-weight: bold;
+        }
+
+        .delete-btn {
+            color: #ccc;
+            background: none;
+            border: none;
+            cursor: pointer;
+            font-size: 1.1rem;
+        }
+
+        .delete-btn:hover {
+            color: var(--primary-color);
+        }
+
+        .cart-footer {
+            border-top: 1px solid #eee;
+            padding-top: 20px;
+        }
+
+        .add-more-link {
+            display: block;
+            text-align: center;
+            margin-bottom: 15px;
+            color: var(--primary-color);
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 0.95rem;
+            cursor: pointer;
+            transition: var(--transition);
+        }
+
+        .add-more-link:hover {
+            text-decoration: underline;
+            color: #c4001d;
+        }
+
+        .min-order-warning {
+            font-size: 0.85rem;
+            color: var(--primary-color);
+            background: #fff5f5;
+            padding: 10px;
+            border-radius: 10px;
+            margin-bottom: 15px;
+            text-align: center;
+            font-weight: 600;
+            border: 1px solid #ffe3e3;
+        }
+
+        .overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0,0,0,0.5);
+            z-index: 1500;
+            display: none;
+        }
+
+        .overlay.active {
+            display: block;
+        }
+
+        /* Contact & Footer */
+        .contact-section { padding: 60px 0; background: white; }
+        .contact-container { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 40px; }
+        footer { background: var(--text-dark); color: white; padding: 30px 0; text-align: center; }
+
+        .floating-wa { position: fixed; bottom: 30px; right: 30px; background: #25d366; color: white; width: 60px; height: 60px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 2rem; box-shadow: 0 5px 15px rgba(0,0,0,0.2); z-index: 1000; }
+
+        @media (max-width: 768px) {
+            .nav-links { display: none; }
+            .cart-sidebar { width: 100%; right: -100%; }
+            .hero-content h1 { font-size: 2rem; }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="overlay" id="overlay"></div>
+
+    <nav>
+        <div class="container nav-content">
+            <a href="#" class="logo" id="nav-shop-name">Hafiz Pizza Hut</a>
+            <ul class="nav-links">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#menu">Menu</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+            <div class="nav-icons">
+                <div class="icon-badge" id="cart-trigger" style="cursor:pointer">
+                    <i class="fas fa-shopping-basket"></i>
+                    <span class="badge" id="cart-count">0</span>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <header class="hero" id="home">
+        <div class="hero-content">
+            <h1 id="hero-title">Hafiz Pizza Hut 🍕</h1>
+            <p id="hero-subtitle">Delicious Pizza, Burgers, Shawarma & More!</p>
+            <a href="#menu" class="btn btn-primary" style="margin-top:20px;">Order Now</a>
+        </div>
+    </header>
+
+    <section class="menu-section" id="menu">
+        <div class="container">
+            <h2 class="section-title">Our <span>Menu</span></h2>
+            
+            <div class="category-tabs">
+                <button class="tab-btn active" onclick="filterMenu('Pizza', this)">Pizzas</button>
+                <button class="tab-btn" onclick="filterMenu('Burger', this)">Burgers</button>
+                <button class="tab-btn" onclick="filterMenu('Shawarma', this)">Shawarma</button>
+                <button class="tab-btn" onclick="filterMenu('Fried', this)">Fried Items</button>
+                <button class="tab-btn" onclick="filterMenu('Fries', this)">Fries/Pasta</button>
+                <button class="tab-btn" onclick="filterMenu('Drinks', this)">Drinks</button>
+                <button class="tab-btn" onclick="filterMenu('PizzaDeal', this)">Pizza Deals 🍕</button>
+                <button class="tab-btn" onclick="filterMenu('BurgerDeal', this)">Burger Deals 🍔</button>
+            </div>
+
+            <div class="menu-grid" id="menu-grid">
+                <!-- Items via JS -->
+            </div>
+        </div>
+    </section>
+
+    <section class="contact-section" id="contact">
+        <div class="container">
+            <div class="contact-container">
+                <div class="contact-info">
+                    <h2 style="margin-bottom:15px" id="contact-shop-name">Hafiz Pizza Hut Sialkot</h2>
+                    <p><i class="fas fa-map-marker-alt" style="color:var(--primary-color)"></i> <span id="contact-address">Main Adda Marjakay, Kingra Road, Sialkot</span></p>
+                    <p style="margin:10px 0"><i class="fab fa-whatsapp" style="color:#25d366"></i> <span id="contact-phone">+92 313 8792056</span></p>
+                    <a href="https://wa.me/923138792056" id="contact-wa-link" class="btn btn-primary" style="background:#25d366; margin-top:10px;">Chat on WhatsApp</a>
+                </div>
+                <form onsubmit="event.preventDefault(); alert('Message Sent!'); this.reset();">
+                    <input type="text" placeholder="Your Name" style="width:100%; padding:12px; margin-bottom:10px; border:1px solid #ddd; border-radius:10px;">
+                    <textarea placeholder="Your Message" style="width:100%; padding:12px; margin-bottom:10px; border:1px solid #ddd; border-radius:10px; height:80px;"></textarea>
+                    <button class="btn btn-primary">Send Message</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Cart Sidebar -->
+    <div class="cart-sidebar" id="cart-sidebar">
+        <div class="cart-header">
+            <h3>Your Order</h3>
+            <span style="cursor:pointer; font-size:1.5rem" onclick="closeCart()">&times;</span>
+        </div>
+        <div class="cart-items" id="cart-items-container"></div>
+        <div class="cart-footer">
+            <a class="add-more-link" onclick="closeCart(); window.location.href='#menu'">+ Add More Items</a>
+            
+            <div id="min-order-msg" class="min-order-warning" style="display:none"></div>
+
+            <div style="display:flex; justify-content:space-between; font-weight:700; margin-bottom:15px; font-size:1.2rem">
+                <span>Total:</span>
+                <span id="total-price">Rs 0</span>
+            </div>
+            <textarea id="order-address" placeholder="Type your delivery address here..." style="width:100%; padding:12px; border-radius:10px; margin-bottom:15px; border:1px solid #ddd; height:80px;"></textarea>
+            <button class="btn btn-primary" style="width:100%;" id="whatsapp-order-btn">Order on WhatsApp</button>
+        </div>
+    </div>
+
+    <a href="https://wa.me/923138792056" id="floating-wa-link" class="floating-wa" target="_blank">
+        <i class="fab fa-whatsapp"></i>
+    </a>
+
+    <footer>
+        <p id="footer-text">&copy; 2024 Hafiz Pizza Hut. All Rights Reserved.</p>
+    </footer>
+
+    <script>
+        // Menu items ab yahan hardcoded nahi -- ye content/menu.json se load honge (CMS se editable)
+        let menuItems = [];
+        let cart = JSON.parse(localStorage.getItem('hafiz-cart')) || [];
+        let currentCategory = 'Pizza';
+        let MIN_ORDER = 1500;
+        let WHATSAPP_NUMBER = "923138792056";
+
+        // Settings (shop name, address, waghera) settings.json se load karke page me bhar dete hain
+        async function loadSettings() {
+            const res = await fetch('/content/settings.json');
+            const s = await res.json();
+
+            MIN_ORDER = s.min_order;
+            WHATSAPP_NUMBER = s.whatsapp_number;
+
+            document.title = `${s.shop_name} | Pizza, Burgers & Fried Items`;
+            document.getElementById('nav-shop-name').innerText = s.shop_name;
+            document.getElementById('hero-title').innerText = s.hero_title;
+            document.getElementById('hero-subtitle').innerText = s.hero_subtitle;
+            document.getElementById('contact-shop-name').innerText = `${s.shop_name} Sialkot`;
+            document.getElementById('contact-address').innerText = s.address;
+            document.getElementById('contact-phone').innerText = `+${s.whatsapp_number}`;
+            document.getElementById('contact-wa-link').href = `https://wa.me/${s.whatsapp_number}`;
+            document.getElementById('floating-wa-link').href = `https://wa.me/${s.whatsapp_number}`;
+            document.getElementById('footer-text').innerHTML = s.footer_text;
+        }
+
+        // Menu items menu.json se load karke render karte hain
+        async function loadMenu() {
+            const res = await fetch('/content/menu.json');
+            const data = await res.json();
+            menuItems = data.items;
+            renderMenu(currentCategory);
+        }
+
+        // Helper: item ke "prices" array me se size ka price nikalna
+        function getPrice(item, sizeKey) {
+            const found = item.prices.find(p => p.size === sizeKey);
+            return found ? found.price : 0;
+        }
+
+        function renderMenu(category) {
+            currentCategory = category;
+            const grid = document.getElementById('menu-grid');
+            const items = menuItems.filter(i => i.category === category);
+            
+            grid.innerHTML = items.map(item => {
+                const isFixed = item.prices.length === 1 && item.prices[0].size === 'Fixed';
+                const isPizza = item.category === 'Pizza';
+                const isDrinks = item.category === 'Drinks';
+                const isDeal = category === 'PizzaDeal' || category === 'BurgerDeal';
+                
+                let selectorHTML = '';
+                const preferredDefault = ['Fixed', 'Medium', 'Small', 'Regular', 'Half Liter'];
+                const defaultEntry = item.prices.find(p => preferredDefault.includes(p.size)) || item.prices[0];
+                let initialPrice = defaultEntry.price;
+
+                if (isDrinks) {
+                    selectorHTML += `
+                    <div class="size-selector">
+                        <label>Select Drink:</label>
+                        <select id="flavor-${item.id}">
+                            <option value="Pepsi">Pepsi</option>
+                            <option value="7Up">7Up</option>
+                            <option value="Dew">Dew</option>
+                        </select>
+                    </div>`;
+                }
+
+                if (!isFixed) {
+                    selectorHTML += `<div class="size-selector"><label>Select Size:</label><select id="size-${item.id}" onchange="updatePriceDisplay(${item.id})">`;
+                    
+                    item.prices.forEach(p => {
+                        const sizeKey = p.size;
+                        let label = sizeKey;
+                        if (isPizza) {
+                            const inchMap = { 'Small': '8"', 'Medium': '10"', 'Large': '13"', 'XL': '16"' };
+                            label = `${sizeKey} ${inchMap[sizeKey]}`;
+                        }
+                        const isSelected = (sizeKey === 'Medium' || sizeKey === 'Small' || sizeKey === 'Regular' || sizeKey === 'Half Liter') ? 'selected' : '';
+                        selectorHTML += `<option value="${sizeKey}" ${isSelected}>${label} (Rs ${p.price})</option>`;
+                    });
+                    
+                    selectorHTML += `</select></div>`;
+                }
+
+                // Layout logic: Deals are strictly text
+                const cardClass = isDeal ? "menu-card deal-card" : "menu-card";
+                const imgHTML = isDeal 
+                    ? `<div style="padding: 20px 20px 0 20px;"><span class="deal-tag">SPECIAL COMBO</span></div>` 
+                    : `<img src="${item.image}" class="menu-img" alt="${item.name}">`;
+
+                return `
+                    <div class="${cardClass}">
+                        ${imgHTML}
+                        <div class="menu-info">
+                            <h3 style="color: ${isDeal ? 'var(--primary-color)' : 'inherit'}">${item.name}</h3>
+                            <p class="menu-desc">${item.desc}</p>
+                            ${selectorHTML}
+                            <p class="menu-price" id="price-p-${item.id}">Rs ${initialPrice}</p>
+                            
+                            <div class="card-qty-wrapper">
+                                <button class="card-qty-btn" onclick="adjustMenuQty(${item.id}, -1)">-</button>
+                                <span class="card-qty-value" id="card-qty-${item.id}">1</span>
+                                <button class="card-qty-btn" onclick="adjustMenuQty(${item.id}, 1)">+</button>
+                            </div>
+
+                            <div class="card-actions">
+                                <button class="btn btn-primary" style="flex:1" onclick="handleAddToCart(${item.id})">
+                                    <i class="fas fa-plus"></i> Add to Cart
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                `;
+            }).join('');
+        }
+
+        window.adjustMenuQty = (id, delta) => {
+            const el = document.getElementById(`card-qty-${id}`);
+            let val = parseInt(el.innerText) + delta;
+            if (val < 1) val = 1;
+            el.innerText = val;
+        };
+
+        window.updatePriceDisplay = (id) => {
+            const item = menuItems.find(i => i.id === id);
+            const size = document.getElementById(`size-${id}`).value;
+            document.getElementById(`price-p-${id}`).innerText = `Rs ${getPrice(item, size)}`;
+        };
+
+        function filterMenu(cat, btn) {
+            document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+            btn.classList.add('active');
+            renderMenu(cat);
+        }
+
+        function handleAddToCart(id) {
+            const item = menuItems.find(i => i.id === id);
+            const sizeEl = document.getElementById(`size-${id}`);
+            const qtyEl = document.getElementById(`card-qty-${id}`);
+            const flavorEl = document.getElementById(`flavor-${id}`);
+            
+            const size = sizeEl ? sizeEl.value : 'Fixed';
+            const qty = parseInt(qtyEl.innerText);
+            const price = getPrice(item, size);
+            const flavor = flavorEl ? flavorEl.value : '';
+            const key = `${id}-${size}-${flavor}`;
+
+            const existing = cart.find(c => c.key === key);
+            if (existing) {
+                existing.qty += qty;
+            } else {
+                let displayName = item.name;
+                if (flavor) displayName = `${flavor} (${item.name})`;
+                
+                if (item.category === 'Pizza' && size !== 'Fixed') {
+                    const inchMap = { 'Small': '8"', 'Medium': '10"', 'Large': '13"', 'XL': '16"' };
+                    displayName += ` (${inchMap[size]})`;
+                } else if (size !== 'Fixed') {
+                    displayName += ` (${size})`;
+                }
+                
+                cart.push({ ...item, name: displayName, key, size, price, qty, flavor });
+            }
+
+            qtyEl.innerText = "1";
+            saveAndUpdate();
+            openCart();
+        }
+
+        function updateQtyInCart(key, delta) {
+            const item = cart.find(c => c.key === key);
+            if (item) {
+                item.qty += delta;
+                if (item.qty <= 0) cart = cart.filter(c => c.key !== key);
+                saveAndUpdate();
+            }
+        }
+
+        function removeFromCart(key) {
+            cart = cart.filter(c => c.key !== key);
+            saveAndUpdate();
+        }
+
+        function saveAndUpdate() {
+            localStorage.setItem('hafiz-cart', JSON.stringify(cart));
+            updateUI();
+        }
+
+        function updateUI() {
+            document.getElementById('cart-count').innerText = cart.reduce((a,b)=>a+b.qty, 0);
+            const container = document.getElementById('cart-items-container');
+            const whatsappBtn = document.getElementById('whatsapp-order-btn');
+            const minOrderMsg = document.getElementById('min-order-msg');
+            let total = 0;
+            
+            if (cart.length === 0) {
+                container.innerHTML = '<p style="text-align:center; padding:20px; color:#999">Your cart is empty.</p>';
+            } else {
+                container.innerHTML = cart.map(item => {
+                    total += item.price * item.qty;
+                    
+                    const thumb = item.image 
+                        ? `<img src="${item.image}">` 
+                        : `<div class="cart-item-placeholder"><i class="fas fa-fire"></i></div>`;
+
+                    return `
+                        <div class="cart-item">
+                            ${thumb}
+                            <div class="cart-item-info">
+                                <h4>${item.name}</h4>
+                                ${item.size !== 'Fixed' ? `<span class="size-tag">${item.size}</span>` : ''}
+                                <p>Rs ${item.price}</p>
+                                <div class="cart-qty-controls">
+                                    <button class="qty-btn-small" onclick="updateQtyInCart('${item.key}', -1)">-</button>
+                                    <span>${item.qty}</span>
+                                    <button class="qty-btn-small" onclick="updateQtyInCart('${item.key}', 1)">+</button>
+                                </div>
+                            </div>
+                            <button class="delete-btn" onclick="removeFromCart('${item.key}')"><i class="fas fa-trash"></i></button>
+                        </div>
+                    `;
+                }).join('');
+            }
+            document.getElementById('total-price').innerText = `Rs ${total}`;
+
+            if (total > 0 && total < MIN_ORDER) {
+                whatsappBtn.disabled = true;
+                minOrderMsg.style.display = 'block';
+                minOrderMsg.innerText = `Minimum order for delivery is Rs ${MIN_ORDER}. Add Rs ${MIN_ORDER - total} more.`;
+            } else {
+                whatsappBtn.disabled = (total === 0);
+                minOrderMsg.style.display = 'none';
+            }
+        }
+
+        function openCart() {
+            document.getElementById('cart-sidebar').classList.add('active');
+            document.getElementById('overlay').classList.add('active');
+        }
+
+        function closeCart() {
+            document.getElementById('cart-sidebar').classList.remove('active');
+            document.getElementById('overlay').classList.remove('active');
+        }
+
+        document.getElementById('cart-trigger').onclick = openCart;
+        document.getElementById('overlay').onclick = closeCart;
+
+        document.getElementById('whatsapp-order-btn').onclick = () => {
+            const address = document.getElementById('order-address').value;
+            const total = cart.reduce((sum, item) => sum + (item.price * item.qty), 0);
+
+            if (cart.length === 0) return alert("Your cart is empty!");
+            if (total < MIN_ORDER) return alert(`Minimum order is Rs ${MIN_ORDER}!`);
+            if (!address) return alert("Please enter your delivery address!");
+
+            let msg = `Hello ${document.getElementById('nav-shop-name').innerText},\nI want to order:\n\n`;
+            cart.forEach(c => {
+                msg += `- ${c.name} x${c.qty} = Rs ${c.price * c.qty}\n`;
+            });
+            msg += `\n*Total Order: Rs ${total}*\n\n*Address:* ${address}`;
+            window.open(`https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(msg)}`, '_blank');
+        };
+
+        window.onload = async () => {
+            await loadSettings();
+            await loadMenu();
+            updateUI();
+        };
+    </script>
+</body>
+</html>
