@@ -1,50 +1,651 @@
 {
   "items": [
-    { "id": 1, "category": "Pizza", "name": "Chicken Tikka Pizza", "desc": "Signature Tikka chunks.", "image": "/images/tikka.png", "prices": [ {"size": "Small", "price": 600}, {"size": "Medium", "price": 1100}, {"size": "Large", "price": 1500}, {"size": "XL", "price": 1900} ] },
-    { "id": 2, "category": "Pizza", "name": "Fajita Pizza", "desc": "Juicy chicken fajita chunks.", "image": "/images/fajita.png", "prices": [ {"size": "Small", "price": 600}, {"size": "Medium", "price": 1100}, {"size": "Large", "price": 1500}, {"size": "XL", "price": 1900} ] },
-    { "id": 3, "category": "Pizza", "name": "Hot and Spicy Pizza", "desc": "Spicy chicken with green chilies.", "image": "/images/hot.png", "prices": [ {"size": "Small", "price": 600}, {"size": "Medium", "price": 1100}, {"size": "Large", "price": 1500}, {"size": "XL", "price": 1900} ] },
-    { "id": 4, "category": "Pizza", "name": "Mexican Pizza", "desc": "Spicy Mexican style topping.", "image": "/images/mexican.png", "prices": [ {"size": "Small", "price": 600}, {"size": "Medium", "price": 1100}, {"size": "Large", "price": 1500}, {"size": "XL", "price": 1900} ] },
-    { "id": 5, "category": "Pizza", "name": "BBQ Pizza", "desc": "Smoky BBQ chicken topping.", "image": "/images/bbq.png", "prices": [ {"size": "Small", "price": 600}, {"size": "Medium", "price": 1100}, {"size": "Large", "price": 1500}, {"size": "XL", "price": 1900} ] },
-    { "id": 6, "category": "Pizza", "name": "Malai Boti Pizza", "desc": "Creamy Malai Boti chunks.", "image": "/images/malai.png", "prices": [ {"size": "Small", "price": 650}, {"size": "Medium", "price": 1150}, {"size": "Large", "price": 1600}, {"size": "XL", "price": 2000} ] },
-    { "id": 7, "category": "Pizza", "name": "Kabab Crust Pizza", "desc": "Kabab stuffed crust edges.", "image": "/images/kabab.png", "prices": [ {"size": "Small", "price": 650}, {"size": "Medium", "price": 1300}, {"size": "Large", "price": 1600}, {"size": "XL", "price": 2200} ] },
-    { "id": 8, "category": "Pizza", "name": "New Entony Crown Crust", "desc": "Crown shaped crust with special filling.", "image": "/images/crown.png", "prices": [ {"size": "Small", "price": 650}, {"size": "Medium", "price": 1300}, {"size": "Large", "price": 1700}, {"size": "XL", "price": 2050} ] },
-    { "id": 9, "category": "Pizza", "name": "Hafiz Special Pizza", "desc": "The ultimate house special.", "image": "/images/hafiz.png", "prices": [ {"size": "Small", "price": 650}, {"size": "Medium", "price": 1350}, {"size": "Large", "price": 1650}, {"size": "XL", "price": 2250} ] },
-    { "id": 10, "category": "Pizza", "name": "Donner Pizza", "desc": "Turkish style donner meat topping.", "image": "/images/donner.png", "prices": [ {"size": "Medium", "price": 1350}, {"size": "Large", "price": 1600}, {"size": "XL", "price": 2200} ] },
-
-    { "id": 11, "category": "Burger", "name": "Shami Burger", "desc": "Classic shami kebab burger.", "image": "/images/shami.png", "prices": [ {"size": "Fixed", "price": 150} ] },
-    { "id": 12, "category": "Burger", "name": "Double Egg Burger", "desc": "Loaded with two fresh eggs.", "image": "/images/patty.png", "prices": [ {"size": "Fixed", "price": 200} ] },
-    { "id": 13, "category": "Burger", "name": "Chicken Burger", "desc": "Juicy chicken patty burger.", "image": "/images/patty.png", "prices": [ {"size": "Fixed", "price": 200} ] },
-    { "id": 14, "category": "Burger", "name": "Zinger Burger", "desc": "Crispy fried chicken breast.", "image": "/images/zinger.png", "prices": [ {"size": "Fixed", "price": 350} ] },
-    { "id": 15, "category": "Burger", "name": "Zinger Cheese Burger", "desc": "Zinger with a slice of melted cheese.", "image": "/images/zinger2.png", "prices": [ {"size": "Fixed", "price": 400} ] },
-
-    { "id": 16, "category": "Shawarma", "name": "Roll Shawarma", "desc": "Traditional chicken shawarma roll.", "image": "/images/1.png", "prices": [ {"size": "Fixed", "price": 220} ] },
-    { "id": 17, "category": "Shawarma", "name": "Paratha Roll", "desc": "Shawarma meat in a crispy paratha.", "image": "/images/1 (1).png", "prices": [ {"size": "Fixed", "price": 350} ] },
-    { "id": 18, "category": "Shawarma", "name": "Open Shawarma", "desc": "Platter style shawarma serving.", "image": "/images/1 (2).png", "prices": [ {"size": "Fixed", "price": 350} ] },
-    { "id": 19, "category": "Shawarma", "name": "Zinger Shawarma", "desc": "Shawarma roll with zinger chicken chunks.", "image": "/images/hot.png", "prices": [ {"size": "Fixed", "price": 350} ] },
-    { "id": 20, "category": "Shawarma", "name": "Zinger Paratha", "desc": "Zinger chicken wrapped in paratha.", "image": "/images/1.png", "prices": [ {"size": "Fixed", "price": 350} ] },
-
-    { "id": 21, "category": "Fried", "name": "Hot Wings (10pcs)", "desc": "Spicy crispy chicken wings.", "image": "/images/hot.png", "prices": [ {"size": "Fixed", "price": 600} ] },
-
-    { "id": 23, "category": "Fries", "name": "Plain Fries", "desc": "Crispy crinkle-cut fries.", "image": "/images/1.png", "prices": [ {"size": "Regular", "price": 200}, {"size": "Large", "price": 300}, {"size": "Family", "price": 450} ] },
-    { "id": 24, "category": "Fries", "name": "Loaded Fries", "desc": "Cheesy fries with chicken chunks.", "image": "/images/1 (1).png", "prices": [ {"size": "Small", "price": 400}, {"size": "Large", "price": 600} ] },
-    { "id": 25, "category": "Fries", "name": "Creamy Pasta", "desc": "Rich white sauce chicken pasta.", "image": "/images/1 (2).png", "prices": [ {"size": "Small", "price": 400}, {"size": "Large", "price": 700} ] },
-
-    { "id": 27, "category": "Drinks", "name": "Soft Drink", "desc": "Pick your choice of chilled soft drink.", "image": "/images/1.png", "prices": [ {"size": "Half Liter", "price": 150}, {"size": "Liter", "price": 160}, {"size": "1.5 Liter", "price": 220} ] },
-
-    { "id": 101, "category": "BurgerDeal", "name": "Burger Deal 1", "desc": "Chicken Burger + 1 Liter Drink + Regular Fries", "image": null, "prices": [ {"size": "Fixed", "price": 550} ] },
-    { "id": 102, "category": "BurgerDeal", "name": "Burger Deal 2", "desc": "1 Zinger Burger + 1 Regular Fries + 1 Regular Drink", "image": null, "prices": [ {"size": "Fixed", "price": 600} ] },
-    { "id": 103, "category": "BurgerDeal", "name": "Burger Deal 3", "desc": "Tower Burger + Regular Fries + Regular Drink", "image": null, "prices": [ {"size": "Fixed", "price": 800} ] },
-    { "id": 104, "category": "BurgerDeal", "name": "Burger Deal 4", "desc": "2 Zinger Burgers + Half Liter Drink", "image": null, "prices": [ {"size": "Fixed", "price": 750} ] },
-    { "id": 105, "category": "BurgerDeal", "name": "Burger Deal 5", "desc": "5 Zinger Burgers + 1.5 Liter Drink", "image": null, "prices": [ {"size": "Fixed", "price": 1850} ] },
-    { "id": 106, "category": "BurgerDeal", "name": "Burger Deal 6", "desc": "7 Zinger Burgers + 10 Hot Wings + Regular Fries + 1.5 Liter Drink", "image": null, "prices": [ {"size": "Fixed", "price": 2250} ] },
-
-    { "id": 201, "category": "PizzaDeal", "name": "Pizza Deal 1", "desc": "1 Small Pizza + 5 Hot Wings + 1 Liter Drink", "image": null, "prices": [ {"size": "Fixed", "price": 1000} ] },
-    { "id": 202, "category": "PizzaDeal", "name": "Pizza Deal 2", "desc": "1 Medium Pizza + 10 Wings + 1 Liter Drink", "image": null, "prices": [ {"size": "Fixed", "price": 1500} ] },
-    { "id": 203, "category": "PizzaDeal", "name": "Pizza Deal 3", "desc": "1 Large Pizza + 5 Hot Wings + 1 Liter Drink", "image": null, "prices": [ {"size": "Fixed", "price": 1900} ] },
-    { "id": 204, "category": "PizzaDeal", "name": "Pizza Deal 4", "desc": "1 XL Pizza + 10 Hot Wings + 1.5 Liter Drink", "image": null, "prices": [ {"size": "Fixed", "price": 2550} ] },
-    { "id": 205, "category": "PizzaDeal", "name": "Pizza Deal 5", "desc": "2 Small Pizzas + 10 Hot Wings", "image": null, "prices": [ {"size": "Fixed", "price": 1950} ] },
-    { "id": 206, "category": "PizzaDeal", "name": "Pizza Deal 6", "desc": "2 Medium Pizzas + 10 Hot Wings + 1.5 Liter Drink", "image": null, "prices": [ {"size": "Fixed", "price": 2900} ] },
-    { "id": 207, "category": "PizzaDeal", "name": "Pizza Deal 7", "desc": "2 Large Pizzas + 10 Hot Wings + 1.5 Liter Drink", "image": null, "prices": [ {"size": "Fixed", "price": 3500} ] },
-    { "id": 208, "category": "PizzaDeal", "name": "Pizza Deal 8", "desc": "2 XL Pizzas + 10 Hot Wings + Family Fries + 1 Liter Drink", "image": null, "prices": [ {"size": "Fixed", "price": 4600} ] }
+    {
+      "id": 1,
+      "category": "Pizza",
+      "name": "Chicken Tikka Pizza",
+      "desc": "Signature Tikka chunks.",
+      "image": "/images/tikka.png",
+      "prices": [
+        {
+          "size": "Small",
+          "price": 600
+        },
+        {
+          "size": "Medium",
+          "price": 1100
+        },
+        {
+          "size": "Large",
+          "price": 1500
+        },
+        {
+          "size": "XL",
+          "price": 2200
+        }
+      ]
+    },
+    {
+      "id": 2,
+      "category": "Pizza",
+      "name": "Fajita Pizza",
+      "desc": "Juicy chicken fajita chunks.",
+      "image": "/images/fajita.png",
+      "prices": [
+        {
+          "size": "Small",
+          "price": 600
+        },
+        {
+          "size": "Medium",
+          "price": 1100
+        },
+        {
+          "size": "Large",
+          "price": 1500
+        },
+        {
+          "size": "XL",
+          "price": 1900
+        }
+      ]
+    },
+    {
+      "id": 3,
+      "category": "Pizza",
+      "name": "Hot and Spicy Pizza",
+      "desc": "Spicy chicken with green chilies.",
+      "image": "/images/hot.png",
+      "prices": [
+        {
+          "size": "Small",
+          "price": 600
+        },
+        {
+          "size": "Medium",
+          "price": 1100
+        },
+        {
+          "size": "Large",
+          "price": 1500
+        },
+        {
+          "size": "XL",
+          "price": 1900
+        }
+      ]
+    },
+    {
+      "id": 4,
+      "category": "Pizza",
+      "name": "Mexican Pizza",
+      "desc": "Spicy Mexican style topping.",
+      "image": "/images/mexican.png",
+      "prices": [
+        {
+          "size": "Small",
+          "price": 600
+        },
+        {
+          "size": "Medium",
+          "price": 1100
+        },
+        {
+          "size": "Large",
+          "price": 1500
+        },
+        {
+          "size": "XL",
+          "price": 1900
+        }
+      ]
+    },
+    {
+      "id": 5,
+      "category": "Pizza",
+      "name": "BBQ Pizza",
+      "desc": "Smoky BBQ chicken topping.",
+      "image": "/images/bbq.png",
+      "prices": [
+        {
+          "size": "Small",
+          "price": 600
+        },
+        {
+          "size": "Medium",
+          "price": 1100
+        },
+        {
+          "size": "Large",
+          "price": 1500
+        },
+        {
+          "size": "XL",
+          "price": 1900
+        }
+      ]
+    },
+    {
+      "id": 6,
+      "category": "Pizza",
+      "name": "Malai Boti Pizza",
+      "desc": "Creamy Malai Boti chunks.",
+      "image": "/images/malai.png",
+      "prices": [
+        {
+          "size": "Small",
+          "price": 650
+        },
+        {
+          "size": "Medium",
+          "price": 1150
+        },
+        {
+          "size": "Large",
+          "price": 1600
+        },
+        {
+          "size": "XL",
+          "price": 2000
+        }
+      ]
+    },
+    {
+      "id": 7,
+      "category": "Pizza",
+      "name": "Kabab Crust Pizza",
+      "desc": "Kabab stuffed crust edges.",
+      "image": "/images/kabab.png",
+      "prices": [
+        {
+          "size": "Small",
+          "price": 650
+        },
+        {
+          "size": "Medium",
+          "price": 1300
+        },
+        {
+          "size": "Large",
+          "price": 1600
+        },
+        {
+          "size": "XL",
+          "price": 2200
+        }
+      ]
+    },
+    {
+      "id": 8,
+      "category": "Pizza",
+      "name": "New Entony Crown Crust",
+      "desc": "Crown shaped crust with special filling.",
+      "image": "/images/crown.png",
+      "prices": [
+        {
+          "size": "Small",
+          "price": 650
+        },
+        {
+          "size": "Medium",
+          "price": 1300
+        },
+        {
+          "size": "Large",
+          "price": 1700
+        },
+        {
+          "size": "XL",
+          "price": 2050
+        }
+      ]
+    },
+    {
+      "id": 9,
+      "category": "Pizza",
+      "name": "Hafiz Special Pizza",
+      "desc": "The ultimate house special.",
+      "image": "/images/hafiz.png",
+      "prices": [
+        {
+          "size": "Small",
+          "price": 650
+        },
+        {
+          "size": "Medium",
+          "price": 1350
+        },
+        {
+          "size": "Large",
+          "price": 1650
+        },
+        {
+          "size": "XL",
+          "price": 2250
+        }
+      ]
+    },
+    {
+      "id": 10,
+      "category": "Pizza",
+      "name": "Donner Pizza",
+      "desc": "Turkish style donner meat topping.",
+      "image": "/images/donner.png",
+      "prices": [
+        {
+          "size": "Medium",
+          "price": 1350
+        },
+        {
+          "size": "Large",
+          "price": 1600
+        },
+        {
+          "size": "XL",
+          "price": 2200
+        }
+      ]
+    },
+    {
+      "id": 11,
+      "category": "Burger",
+      "name": "Shami Burger",
+      "desc": "Classic shami kebab burger.",
+      "image": "/images/shami.png",
+      "prices": [
+        {
+          "size": "Fixed",
+          "price": 150
+        }
+      ]
+    },
+    {
+      "id": 12,
+      "category": "Burger",
+      "name": "Double Egg Burger",
+      "desc": "Loaded with two fresh eggs.",
+      "image": "/images/patty.png",
+      "prices": [
+        {
+          "size": "Fixed",
+          "price": 200
+        }
+      ]
+    },
+    {
+      "id": 13,
+      "category": "Burger",
+      "name": "Chicken Burger",
+      "desc": "Juicy chicken patty burger.",
+      "image": "/images/patty.png",
+      "prices": [
+        {
+          "size": "Fixed",
+          "price": 200
+        }
+      ]
+    },
+    {
+      "id": 14,
+      "category": "Burger",
+      "name": "Zinger Burger",
+      "desc": "Crispy fried chicken breast.",
+      "image": "/images/zinger.png",
+      "prices": [
+        {
+          "size": "Fixed",
+          "price": 350
+        }
+      ]
+    },
+    {
+      "id": 15,
+      "category": "Burger",
+      "name": "Zinger Cheese Burger",
+      "desc": "Zinger with a slice of melted cheese.",
+      "image": "/images/zinger2.png",
+      "prices": [
+        {
+          "size": "Fixed",
+          "price": 400
+        }
+      ]
+    },
+    {
+      "id": 16,
+      "category": "Shawarma",
+      "name": "Roll Shawarma",
+      "desc": "Traditional chicken shawarma roll.",
+      "image": "/images/1.png",
+      "prices": [
+        {
+          "size": "Fixed",
+          "price": 220
+        }
+      ]
+    },
+    {
+      "id": 17,
+      "category": "Shawarma",
+      "name": "Paratha Roll",
+      "desc": "Shawarma meat in a crispy paratha.",
+      "image": "/images/1 (1).png",
+      "prices": [
+        {
+          "size": "Fixed",
+          "price": 350
+        }
+      ]
+    },
+    {
+      "id": 18,
+      "category": "Shawarma",
+      "name": "Open Shawarma",
+      "desc": "Platter style shawarma serving.",
+      "image": "/images/1 (2).png",
+      "prices": [
+        {
+          "size": "Fixed",
+          "price": 350
+        }
+      ]
+    },
+    {
+      "id": 19,
+      "category": "Shawarma",
+      "name": "Zinger Shawarma",
+      "desc": "Shawarma roll with zinger chicken chunks.",
+      "image": "/images/hot.png",
+      "prices": [
+        {
+          "size": "Fixed",
+          "price": 350
+        }
+      ]
+    },
+    {
+      "id": 20,
+      "category": "Shawarma",
+      "name": "Zinger Paratha",
+      "desc": "Zinger chicken wrapped in paratha.",
+      "image": "/images/1.png",
+      "prices": [
+        {
+          "size": "Fixed",
+          "price": 350
+        }
+      ]
+    },
+    {
+      "id": 21,
+      "category": "Fried",
+      "name": "Hot Wings (10pcs)",
+      "desc": "Spicy crispy chicken wings.",
+      "image": "/images/hot.png",
+      "prices": [
+        {
+          "size": "Fixed",
+          "price": 600
+        }
+      ]
+    },
+    {
+      "id": 23,
+      "category": "Fries",
+      "name": "Plain Fries",
+      "desc": "Crispy crinkle-cut fries.",
+      "image": "/images/1.png",
+      "prices": [
+        {
+          "size": "Regular",
+          "price": 200
+        },
+        {
+          "size": "Large",
+          "price": 300
+        },
+        {
+          "size": "Family",
+          "price": 450
+        }
+      ]
+    },
+    {
+      "id": 24,
+      "category": "Fries",
+      "name": "Loaded Fries",
+      "desc": "Cheesy fries with chicken chunks.",
+      "image": "/images/1 (1).png",
+      "prices": [
+        {
+          "size": "Small",
+          "price": 400
+        },
+        {
+          "size": "Large",
+          "price": 600
+        }
+      ]
+    },
+    {
+      "id": 25,
+      "category": "Fries",
+      "name": "Creamy Pasta",
+      "desc": "Rich white sauce chicken pasta.",
+      "image": "/images/1 (2).png",
+      "prices": [
+        {
+          "size": "Small",
+          "price": 400
+        },
+        {
+          "size": "Large",
+          "price": 700
+        }
+      ]
+    },
+    {
+      "id": 27,
+      "category": "Drinks",
+      "name": "Soft Drink",
+      "desc": "Pick your choice of chilled soft drink.",
+      "image": "/images/1.png",
+      "prices": [
+        {
+          "size": "Half Liter",
+          "price": 150
+        },
+        {
+          "size": "Liter",
+          "price": 160
+        },
+        {
+          "size": "1.5 Liter",
+          "price": 220
+        }
+      ]
+    },
+    {
+      "id": 101,
+      "category": "BurgerDeal",
+      "name": "Burger Deal 1",
+      "desc": "Chicken Burger + 1 Liter Drink + Regular Fries",
+      "image": null,
+      "prices": [
+        {
+          "size": "Fixed",
+          "price": 550
+        }
+      ]
+    },
+    {
+      "id": 102,
+      "category": "BurgerDeal",
+      "name": "Burger Deal 2",
+      "desc": "1 Zinger Burger + 1 Regular Fries + 1 Regular Drink",
+      "image": null,
+      "prices": [
+        {
+          "size": "Fixed",
+          "price": 600
+        }
+      ]
+    },
+    {
+      "id": 103,
+      "category": "BurgerDeal",
+      "name": "Burger Deal 3",
+      "desc": "Tower Burger + Regular Fries + Regular Drink",
+      "image": null,
+      "prices": [
+        {
+          "size": "Fixed",
+          "price": 800
+        }
+      ]
+    },
+    {
+      "id": 104,
+      "category": "BurgerDeal",
+      "name": "Burger Deal 4",
+      "desc": "2 Zinger Burgers + Half Liter Drink",
+      "image": null,
+      "prices": [
+        {
+          "size": "Fixed",
+          "price": 750
+        }
+      ]
+    },
+    {
+      "id": 105,
+      "category": "BurgerDeal",
+      "name": "Burger Deal 5",
+      "desc": "5 Zinger Burgers + 1.5 Liter Drink",
+      "image": null,
+      "prices": [
+        {
+          "size": "Fixed",
+          "price": 1850
+        }
+      ]
+    },
+    {
+      "id": 106,
+      "category": "BurgerDeal",
+      "name": "Burger Deal 6",
+      "desc": "7 Zinger Burgers + 10 Hot Wings + Regular Fries + 1.5 Liter Drink",
+      "image": null,
+      "prices": [
+        {
+          "size": "Fixed",
+          "price": 2250
+        }
+      ]
+    },
+    {
+      "id": 201,
+      "category": "PizzaDeal",
+      "name": "Pizza Deal 1",
+      "desc": "1 Small Pizza + 5 Hot Wings + 1 Liter Drink",
+      "image": null,
+      "prices": [
+        {
+          "size": "Fixed",
+          "price": 1000
+        }
+      ]
+    },
+    {
+      "id": 202,
+      "category": "PizzaDeal",
+      "name": "Pizza Deal 2",
+      "desc": "1 Medium Pizza + 10 Wings + 1 Liter Drink",
+      "image": null,
+      "prices": [
+        {
+          "size": "Fixed",
+          "price": 1500
+        }
+      ]
+    },
+    {
+      "id": 203,
+      "category": "PizzaDeal",
+      "name": "Pizza Deal 3",
+      "desc": "1 Large Pizza + 5 Hot Wings + 1 Liter Drink",
+      "image": null,
+      "prices": [
+        {
+          "size": "Fixed",
+          "price": 1900
+        }
+      ]
+    },
+    {
+      "id": 204,
+      "category": "PizzaDeal",
+      "name": "Pizza Deal 4",
+      "desc": "1 XL Pizza + 10 Hot Wings + 1.5 Liter Drink",
+      "image": null,
+      "prices": [
+        {
+          "size": "Fixed",
+          "price": 2550
+        }
+      ]
+    },
+    {
+      "id": 205,
+      "category": "PizzaDeal",
+      "name": "Pizza Deal 5",
+      "desc": "2 Small Pizzas + 10 Hot Wings",
+      "image": null,
+      "prices": [
+        {
+          "size": "Fixed",
+          "price": 1950
+        }
+      ]
+    },
+    {
+      "id": 206,
+      "category": "PizzaDeal",
+      "name": "Pizza Deal 6",
+      "desc": "2 Medium Pizzas + 10 Hot Wings + 1.5 Liter Drink",
+      "image": null,
+      "prices": [
+        {
+          "size": "Fixed",
+          "price": 2900
+        }
+      ]
+    },
+    {
+      "id": 207,
+      "category": "PizzaDeal",
+      "name": "Pizza Deal 7",
+      "desc": "2 Large Pizzas + 10 Hot Wings + 1.5 Liter Drink",
+      "image": null,
+      "prices": [
+        {
+          "size": "Fixed",
+          "price": 3500
+        }
+      ]
+    },
+    {
+      "id": 208,
+      "category": "PizzaDeal",
+      "name": "Pizza Deal 8",
+      "desc": "2 XL Pizzas + 10 Hot Wings + Family Fries + 1 Liter Drink",
+      "image": null,
+      "prices": [
+        {
+          "size": "Fixed",
+          "price": 4600
+        }
+      ]
+    }
   ]
 }
