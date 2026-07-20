@@ -646,18 +646,6 @@
           "price": 4600
         }
       ]
-    },
-    {
-      "id": 333,
-      "category": "PizzaDeal",
-      "name": "14 August Deal",
-      "desc": "3 XL Pizzas + 20 Hot Wings + Family Fries + 1.5 Liter Drink",
-      "prices": [
-        {
-          "price": 5600,
-          "size": "Fixed"
-        }
-      ]
     }
   ]
 }
